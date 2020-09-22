@@ -5,13 +5,11 @@
 // Lab Instructor: Suba Sah
 // Lab Project Number: HW 3
 // Brief description of the program
-// Hardware connections
-
+// Program to turn on a positive logic LED
+// on Port C pin 6
 
 #include <stdint.h>
 #include "C:/Keil/EECS 3100/Project Templates/inc/tm4c123gh6pm.h"
-
-unsigned long status;
 
 // Set up the port C
 void initPortC(void){ volatile unsigned long delay;
@@ -34,9 +32,9 @@ int main(void){
 	volatile unsigned long delay;
 	// Init Port C
 	initPortC();
+	// and turn on the LED
 	LED_On();
 
-	
 	while(1){
 	}
 }
