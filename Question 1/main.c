@@ -12,8 +12,6 @@
 #include <stdint.h>
 #include "C:/Keil/EECS 3100/Project Templates/inc/tm4c123gh6pm.h"
 
-#define PA7   (*((volatile unsigned long *)0x40004200))
-
 unsigned long status;
 
 // Set up the port A
@@ -30,10 +28,6 @@ void initPortA(void){ volatile unsigned long delay;
 }
 
 unsigned long Switch_Input(void){
-	return PA7;
-}
-
-unsigned long Switch_Input2(void){
 	return (GPIO_PORTA_DATA_R&0x80);
 }
 
@@ -47,6 +41,5 @@ int main(void){
 	
 	while(1){
 		test = Switch_Input();
-		test = Switch_Input2();
 	}
 }
