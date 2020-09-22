@@ -5,3 +5,6 @@
 *.d
 *.o
 *.lst
+*.uvgui.Quinn
+*.bak
+*.uvopt
