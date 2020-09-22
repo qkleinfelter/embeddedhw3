@@ -5,13 +5,13 @@
 // Lab Instructor: Suba Sah
 // Lab Project Number: HW 3
 // Brief description of the program
-// Hardware connections
-
+// Negative logic LED on Port D pin 3
+// note: the assignment says use pin 4, but
+// it is unavailable due to the usb header
+// so pin 3 was used
 
 #include <stdint.h>
 #include "C:/Keil/EECS 3100/Project Templates/inc/tm4c123gh6pm.h"
-
-unsigned long status;
 
 // Set up the port D
 void initPortD(void){ volatile unsigned long delay;
@@ -30,10 +30,10 @@ void LED_Off(void) {
 }
 
 int main(void){ 
-  
-	volatile unsigned long delay;
+	
 	// Init Port D
 	initPortD();
+	// and turn off the LED
 	LED_Off();
 
 	
