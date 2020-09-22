@@ -5,7 +5,8 @@
 // Lab Instructor: Suba Sah
 // Lab Project Number: HW 3
 // Brief description of the program
-// Hardware connections
+// Outputs a value between 0x00 and 0x07
+// to the Pins 3, 4, and 5 on Port A
 
 
 #include <stdint.h>
@@ -24,6 +25,7 @@ void initPortA(void){ volatile unsigned long delay;
   GPIO_PORTA_DEN_R |= 0x38;         // 7) enable PA3, PA4, and PA5 digital port
 }
 
+// Write the value from inp to PA3, PA4, and PA5
 void writeToPins(unsigned char inp) {
 	if (inp > 0x07) {
 		return; // We only want to write in the range 0x00-0x07
