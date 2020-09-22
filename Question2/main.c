@@ -5,14 +5,12 @@
 // Lab Instructor: Suba Sah
 // Lab Project Number: HW 3
 // Brief description of the program
-// Hardware connections
-// The specific operation of this system is to 
-//   unlock if all three switches are pressed
+// Negative logic switch on Port B pin 0
 
 #include <stdint.h>
 #include "C:/Keil/EECS 3100/Project Templates/inc/tm4c123gh6pm.h"
 
-// Set up the port B
+// Set up port B
 void initPortB(void){ volatile unsigned long delay;
 
   SYSCTL_RCGC2_R |= 0x00000002;     // 1) activate clock for Port B
@@ -26,6 +24,8 @@ void initPortB(void){ volatile unsigned long delay;
   GPIO_PORTB_DEN_R |= 0x01;         // 7) enable PB0 digital port
 }
 
+// Function to read in the data on Port B pin 0
+// 0x01 = 0000 0001
 unsigned long Switch_Input(void){
 	return (GPIO_PORTB_DATA_R&0x01); // 0x01 if not pressed or 0x00 if pressed
 }
@@ -38,6 +38,8 @@ int main(void){
 
 	
 	while(1){
+		// While looping endlessly make the test
+		// value equivalent to the switch input
 		test = Switch_Input();
 	}
 }
