@@ -5,14 +5,10 @@
 // Lab Instructor: Suba Sah
 // Lab Project Number: HW 3
 // Brief description of the program
-// Hardware connections
-// The specific operation of this system is to 
-//   unlock if all three switches are pressed
+// Positive logic switch on Port A pin 7
 
 #include <stdint.h>
 #include "C:/Keil/EECS 3100/Project Templates/inc/tm4c123gh6pm.h"
-
-unsigned long status;
 
 // Set up the port A
 void initPortA(void){ volatile unsigned long delay;
@@ -27,19 +23,21 @@ void initPortA(void){ volatile unsigned long delay;
   GPIO_PORTA_DEN_R |= 0x80;         // 7) enable PA7 digital port
 }
 
+// Function to read in the data on Port A pin 7
+// 0x80 = 1000 0000
 unsigned long Switch_Input(void){
 	return (GPIO_PORTA_DATA_R&0x80);
 }
 
 int main(void){ 
   
-	volatile unsigned long delay;
 	volatile unsigned long test;
 	// Init Port A
 	initPortA();
 
 	
 	while(1){
+		// While looping endlessly make the test value equivalent to the switch input
 		test = Switch_Input();
 	}
 }
