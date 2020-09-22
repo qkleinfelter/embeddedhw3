@@ -1,13 +1,12 @@
 // Program written by: Quinn Kleinfelter
-// Date Created: 09/21/2020
-// Last Modified: 09/21/2020
+// Date Created: 09/22/2020
+// Last Modified: 09/22/2020
 // Lab Section: 003
 // Lab Instructor: Suba Sah
 // Lab Project Number: HW 3
 // Brief description of the program
 // Hardware connections
-// The specific operation of this system is to 
-//   unlock if all three switches are pressed
+
 
 #include <stdint.h>
 #include "C:/Keil/EECS 3100/Project Templates/inc/tm4c123gh6pm.h"
