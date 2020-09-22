@@ -12,14 +12,12 @@
 #include <stdint.h>
 #include "C:/Keil/EECS 3100/Project Templates/inc/tm4c123gh6pm.h"
 
-unsigned long status;
-
 // Set up the port B
 void initPortB(void){ volatile unsigned long delay;
 
   SYSCTL_RCGC2_R |= 0x00000002;     // 1) activate clock for Port B
   delay = SYSCTL_RCGC2_R;           // allow time for clock to start
-                                    // 2) no need to unlock GPIO Port A
+                                    // 2) no need to unlock GPIO Port B
   GPIO_PORTB_AMSEL_R &= ~0x01;      // 3) disable analog on PB0
   GPIO_PORTB_PCTL_R &= ~0x0000000F; // 4) PCTL GPIO on PB0
   GPIO_PORTB_DIR_R &= ~0x01;        // 5) direction PB0 input
@@ -33,10 +31,9 @@ unsigned long Switch_Input(void){
 }
 
 int main(void){ 
-  
-	volatile unsigned long delay;
+ 
 	volatile unsigned long test;
-	// Init Port A
+	// Init Port B
 	initPortB();
 
 	
