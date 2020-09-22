@@ -8,11 +8,8 @@
 // Outputs a value between 0x00 and 0x07
 // to the Pins 3, 4, and 5 on Port A
 
-
 #include <stdint.h>
 #include "C:/Keil/EECS 3100/Project Templates/inc/tm4c123gh6pm.h"
-
-unsigned long status;
 
 // Set up the port A
 void initPortA(void){ volatile unsigned long delay;
@@ -37,7 +34,6 @@ void writeToPins(unsigned char inp) {
 
 int main(void){ 
   
-	volatile unsigned long delay;
 	// Init Port A
 	initPortA();
 
