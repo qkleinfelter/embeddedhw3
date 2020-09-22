@@ -10,7 +10,7 @@
 //   unlock if all three switches are pressed
 
 #include <stdint.h>
-#include "inc/tm4c123gh6pm.h"
+#include "C:/Keil/EECS 3100/Project Templates/inc/tm4c123gh6pm.h"
 
 #define PA7   (*((volatile unsigned long *)0x40004200))
 
