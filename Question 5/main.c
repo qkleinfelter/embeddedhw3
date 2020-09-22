@@ -24,6 +24,14 @@ void initPortA(void){ volatile unsigned long delay;
   GPIO_PORTA_DEN_R |= 0x38;         // 7) enable PA3, PA4, and PA5 digital port
 }
 
+void writeToPins(unsigned char inp) {
+	if (inp > 0x07) {
+		return; // We only want to write in the range 0x00-0x07
+	}
+	// We need to left shift the input so that they are correctly moved
+	// to the 3 bits we use, PA3, PA4, and PA5
+	GPIO_PORTA_DATA_R = (inp << 3);
+}
 
 int main(void){ 
   
@@ -31,6 +39,15 @@ int main(void){
 	// Init Port A
 	initPortA();
 
+	// Write all applicable values to the pins for testing
+	writeToPins(0x00);
+	writeToPins(0x01);
+	writeToPins(0x02);
+	writeToPins(0x03);
+	writeToPins(0x04);
+	writeToPins(0x05);
+	writeToPins(0x06);
+	writeToPins(0x07);
 	
 	while(1){
 	}
